@@ -16,7 +16,7 @@ class Square implements Shape
     /**
      * @return float
      */
-    public function getArea()
+    public function getArea(): float
     {
         return pow($this->getSide(), 2);
     }
@@ -24,18 +24,18 @@ class Square implements Shape
     /**
      * @return float
      */
-    public function getSide()
+    public function getSide(): float
     {
         return $this->side;
     }
 
     /**
      * @param float $side
-     * @return $this
+     * @return Square
      */
-    public function setSide($side)
+    public function setSide(float $side) : Square
     {
-        $this->side = (float) $side;
+        $this->side = $side;
 
         return $this;
     }

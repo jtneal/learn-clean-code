@@ -12,5 +12,5 @@ interface AbstractShapeFactory
      * @param string $shapeName
      * @return Shape
      */
-    public static function make($shapeName);
+    public static function make(string $shapeName): Shape;
 }

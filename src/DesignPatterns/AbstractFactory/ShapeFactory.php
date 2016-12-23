@@ -13,7 +13,7 @@ class ShapeFactory implements AbstractShapeFactory
      * @return Shape
      * @throws \InvalidArgumentException
      */
-    public static function make($shapeName)
+    public static function make(string $shapeName): Shape
     {
         $class = __NAMESPACE__ . '\\' . $shapeName;
 

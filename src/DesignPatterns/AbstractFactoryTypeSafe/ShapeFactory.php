@@ -11,7 +11,7 @@ class ShapeFactory implements AbstractShapeFactory
     /**
      * @return Shape
      */
-    public static function makeSquare()
+    public static function makeSquare(): Shape
     {
         return new Square();
     }
@@ -19,7 +19,7 @@ class ShapeFactory implements AbstractShapeFactory
     /**
      * @return Shape
      */
-    public static function makeCircle()
+    public static function makeCircle(): Shape
     {
         return new Circle();
     }

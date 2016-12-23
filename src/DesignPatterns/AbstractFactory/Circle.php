@@ -16,7 +16,7 @@ class Circle implements Shape
     /**
      * @return float
      */
-    public function getArea()
+    public function getArea(): float
     {
         return pi() * pow($this->getRadius(), 2);
     }
@@ -24,18 +24,18 @@ class Circle implements Shape
     /**
      * @return float
      */
-    public function getRadius()
+    public function getRadius(): float
     {
         return $this->radius;
     }
 
     /**
      * @param float $radius
-     * @return $this
+     * @return Circle
      */
-    public function setRadius($radius)
+    public function setRadius(float $radius): Circle
     {
-        $this->radius = (float) $radius;
+        $this->radius = $radius;
 
         return $this;
     }

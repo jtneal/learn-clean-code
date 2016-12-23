@@ -11,5 +11,5 @@ interface Shape
     /**
      * @return float
      */
-    public function getArea();
+    public function getArea(): float;
 }
