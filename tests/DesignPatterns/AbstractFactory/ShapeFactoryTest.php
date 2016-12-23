@@ -14,11 +14,11 @@ class ShapeFactoryTest extends \PHPUnit_Framework_TestCase
     public function testShapeFactory()
     {
         /** @var Square $square */
-        $square = ShapeFactory::makeSquare();
+        $square = ShapeFactory::make('Square');
         $square->setSide(5);
 
         /** @var Circle $circle */
-        $circle = ShapeFactory::makeCircle();
+        $circle = ShapeFactory::make('Circle');
         $circle->setRadius(5);
 
         $this->assertInstanceOf(Square::class, $square);

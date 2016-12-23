@@ -9,18 +9,18 @@ namespace LearnCleanCode\DesignPatterns\AbstractFactory;
 class ShapeFactory implements AbstractShapeFactory
 {
     /**
+     * @param string $shapeName
      * @return Shape
+     * @throws \InvalidArgumentException
      */
-    public static function makeSquare()
+    public static function make($shapeName)
     {
-        return new Square();
-    }
+        $class = __NAMESPACE__ . '\\' . $shapeName;
 
-    /**
-     * @return Shape
-     */
-    public static function makeCircle()
-    {
-        return new Circle();
+        if (class_exists($class)) {
+            return new $class();
+        } else {
+            throw new \InvalidArgumentException($shapeName . ' is not a valid shape.');
+        }
     }
 }
