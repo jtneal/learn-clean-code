@@ -26,5 +26,8 @@ class ShapeFactoryTest extends \PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf(Circle::class, $circle);
         $this->assertEquals(pi() * 25, $circle->getArea());
+
+        $this->expectException('InvalidArgumentException');
+        $test = ShapeFactory::make('Test');
     }
 }
