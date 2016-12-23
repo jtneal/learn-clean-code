@@ -1,0 +1,23 @@
+{
+  "name": "jtneal/learn-clean-code",
+  "description": "Learn Clean Code - Inspired by Robert C. Martin (Uncle Bob)",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jason Neal",
+      "email": "jtneal@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "~7.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^5.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "LearnCleanCode\\": "src"
+    }
+  }
+}
