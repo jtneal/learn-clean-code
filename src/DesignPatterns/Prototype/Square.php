@@ -35,15 +35,4 @@ class Square implements Shape
     {
         return $this->side;
     }
-
-    /**
-     * @param float $side
-     * @return Square
-     */
-    public function setSide(float $side): Square
-    {
-        $this->side = $side;
-
-        return $this;
-    }
 }

@@ -35,15 +35,4 @@ class Circle implements Shape
     {
         return $this->radius;
     }
-
-    /**
-     * @param float $radius
-     * @return Circle
-     */
-    public function setRadius(float $radius): Circle
-    {
-        $this->radius = $radius;
-
-        return $this;
-    }
 }
