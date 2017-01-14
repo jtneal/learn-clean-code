@@ -21,7 +21,7 @@ class Config
     /**
      * @return Config
      */
-    public static function getInstance()
+    public static function getInstance(): Config
     {
         static $instance = null;
 
