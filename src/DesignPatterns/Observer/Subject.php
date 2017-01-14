@@ -36,7 +36,9 @@ class Subject
      */
     public function remove(Observer $observer)
     {
-        if ($key = array_search($observer, $this->observers)) {
+        $key = array_search($observer, $this->observers);
+
+        if ($key !== false) {
             array_splice($this->observers, $key, 1);
         }
     }
