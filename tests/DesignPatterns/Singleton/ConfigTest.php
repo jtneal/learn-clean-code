@@ -15,12 +15,4 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('Application Title', $config->title);
         $this->assertEquals('Application Description', $config->description);
     }
-
-    /**
-     * @expectedException \Error
-     */
-    public function testConfigSingletonException()
-    {
-        $config = new Config();
-    }
 }
