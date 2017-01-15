@@ -69,32 +69,10 @@ class LaptopInstance
     }
 
     /**
-     * @param string $serialNumber
-     * @return LaptopInstance
-     */
-    public function setSerialNumber(string $serialNumber): LaptopInstance
-    {
-        $this->serialNumber = $serialNumber;
-
-        return $this;
-    }
-
-    /**
      * @return \DateTime
      */
     public function getManufactureDate(): \DateTime
     {
         return $this->manufactureDate;
-    }
-
-    /**
-     * @param \DateTime $manufactureDate
-     * @return LaptopInstance
-     */
-    public function setManufactureDate(\DateTime $manufactureDate): LaptopInstance
-    {
-        $this->manufactureDate = $manufactureDate;
-
-        return $this;
     }
 }
