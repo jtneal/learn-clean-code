@@ -21,8 +21,8 @@ class PurchaseRequest
      */
     public function __construct(float $amount, string $purpose)
     {
-        $this->amount = $amount;
-        $this->purpose = $purpose;
+        $this->setAmount($amount);
+        $this->setPurpose($purpose);
     }
 
     /**
