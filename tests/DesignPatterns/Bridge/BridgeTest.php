@@ -1,6 +1,7 @@
 <?php
 
 namespace LearnCleanCode\DesignPatterns\Bridge;
+
 use LearnCleanCode\DesignPatterns\Bridge\Calculator\CommissionedCalculator;
 use LearnCleanCode\DesignPatterns\Bridge\Calculator\HourlyCalculator;
 use LearnCleanCode\DesignPatterns\Bridge\Calculator\SalariedCalculator;
