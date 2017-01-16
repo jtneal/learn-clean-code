@@ -63,4 +63,34 @@ class IteratorTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(0, $iterator->key());
         $this->assertTrue($iterator->valid());
     }
+
+    /**
+     * Test User
+     */
+    public function testUser()
+    {
+        $user = new User();
+        $user->setFirstName('First');
+        $user->setMiddleName('Middle');
+        $user->setLastName('Last');
+
+        $this->assertEquals('First', $user->getFirstName());
+        $this->assertEquals('Middle', $user->getMiddleName());
+        $this->assertEquals('Last', $user->getLastName());
+    }
+
+    /**
+     * Test NullUser
+     */
+    public function testNullUser()
+    {
+        $user = new NullUser();
+        $user->setFirstName('First');
+        $user->setMiddleName('Middle');
+        $user->setLastName('Last');
+
+        $this->assertEquals('', $user->getFirstName());
+        $this->assertEquals('', $user->getMiddleName());
+        $this->assertEquals('', $user->getLastName());
+    }
 }
