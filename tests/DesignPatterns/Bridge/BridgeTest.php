@@ -53,4 +53,19 @@ class BridgeTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals( 7500.00, $paychecks[7]->getAmount());
         $this->assertEquals(21666.67, $paychecks[8]->getAmount());
     }
+
+    /**
+     * Test Employee
+     */
+    public function testEmployee()
+    {
+        $weekly = new WeeklyScheduler();
+        $hourly = new HourlyCalculator();
+        $employee = new Employee($weekly, $hourly);
+        $payroll = new Payroll([$employee]);
+        $payroll->processPayroll();
+        $paychecks = $payroll->getPaychecks();
+
+        $this->assertEquals($employee, $paychecks[0]->getEmployee());
+    }
 }
