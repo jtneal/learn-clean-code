@@ -78,7 +78,7 @@ class Game
     private function addFrameWhenNeeded(): Game
     {
         if ($this->isNewFrameNeeded()) {
-            $this->frames[] = $this->countFrames() === 9 ? new FinalFrame() : new Frame();
+            $this->frames[] = FrameFactory::getFrame($this->countFrames() + 1);
         }
 
         return $this;

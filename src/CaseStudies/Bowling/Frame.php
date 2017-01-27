@@ -6,12 +6,17 @@ namespace LearnCleanCode\CaseStudies\Bowling;
  * Class Frame
  * @package LearnCleanCode\CaseStudies\Bowling
  */
-class Frame
+abstract class Frame
 {
     /**
      * @var int[]
      */
     private $throws = [];
+
+    /**
+     * @return bool
+     */
+    abstract public function isComplete(): bool;
 
     /**
      * @return int[]
@@ -62,13 +67,5 @@ class Frame
     public function isStrike(): bool
     {
         return $this->countThrows() === 1 && $this->getTotal() === 10;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isComplete(): bool
-    {
-        return $this->countThrows() === 2 || $this->isStrike();
     }
 }
