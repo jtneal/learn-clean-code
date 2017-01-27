@@ -15,7 +15,7 @@ class GameTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->game = new Game(new Scorer());
+        $this->game = new Game(new FrameFactory(), new Scorer());
     }
 
     /**

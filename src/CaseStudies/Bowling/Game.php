@@ -9,9 +9,14 @@ namespace LearnCleanCode\CaseStudies\Bowling;
 class Game
 {
     /**
-     * @var Frame[]
+     * @var FrameCollection
      */
     private $frames;
+
+    /**
+     * @var AbstractFrameFactory
+     */
+    private $frameFactory;
 
     /**
      * @var ScorerInterface
@@ -19,10 +24,13 @@ class Game
     private $scorer;
 
     /**
+     * @param AbstractFrameFactory $frameFactory
      * @param ScorerInterface $scorer
      */
-    public function __construct(ScorerInterface $scorer)
+    public function __construct(AbstractFrameFactory $frameFactory, ScorerInterface $scorer)
     {
+        $this->frames = new FrameCollection();
+        $this->frameFactory = $frameFactory;
         $this->scorer = $scorer;
     }
 
@@ -33,7 +41,7 @@ class Game
     public function throwBall(int $pins): Game
     {
         if (!$this->isGameComplete()) {
-            $this->addFrameWhenNeeded()->getActiveFrame()->addThrow($pins);
+            $this->addFrameWhenNeeded()->frames->getLastFrame()->addThrow($pins);
         }
 
         return $this;
@@ -44,32 +52,7 @@ class Game
      */
     private function isGameComplete(): bool
     {
-        return $this->countFrames() === 10 && $this->getFrame(10)->isComplete();
-    }
-
-    /**
-     * @return int
-     */
-    private function countFrames(): int
-    {
-        return count($this->frames);
-    }
-
-    /**
-     * @param int $frame
-     * @return Frame
-     */
-    private function getFrame(int $frame): Frame
-    {
-        return $this->frames[$frame - 1];
-    }
-
-    /**
-     * @return Frame
-     */
-    private function getActiveFrame(): Frame
-    {
-        return $this->getFrame($this->countFrames());
+        return $this->frames->countFrames() === 10 && $this->frames->getLastFrame()->isComplete();
     }
 
     /**
@@ -77,19 +60,11 @@ class Game
      */
     private function addFrameWhenNeeded(): Game
     {
-        if ($this->isNewFrameNeeded()) {
-            $this->frames[] = FrameFactory::getFrame($this->countFrames() + 1);
+        if ($this->frames->getLastFrame()->isComplete()) {
+            $this->frames->addFrame($this->frameFactory->getFrame($this->frames->countFrames() + 1));
         }
 
         return $this;
-    }
-
-    /**
-     * @return bool
-     */
-    private function isNewFrameNeeded(): bool
-    {
-        return $this->countFrames() === 0 || $this->getActiveFrame()->isComplete();
     }
 
     /**

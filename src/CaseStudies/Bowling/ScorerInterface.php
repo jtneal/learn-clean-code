@@ -9,10 +9,10 @@ namespace LearnCleanCode\CaseStudies\Bowling;
 interface ScorerInterface
 {
     /**
-     * @param array $frames
+     * @param FrameCollection $frames
      * @return Scorer
      */
-    public function setFrames(array $frames): Scorer;
+    public function setFrames(FrameCollection $frames): Scorer;
 
     /**
      * @return int

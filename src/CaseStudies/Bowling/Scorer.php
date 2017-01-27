@@ -9,15 +9,15 @@ namespace LearnCleanCode\CaseStudies\Bowling;
 class Scorer implements ScorerInterface
 {
     /**
-     * @var Frame[]
+     * @var FrameCollection
      */
     private $frames;
 
     /**
-     * @param array $frames
+     * @param FrameCollection $frames
      * @return Scorer
      */
-    public function setFrames(array $frames): Scorer
+    public function setFrames(FrameCollection $frames): Scorer
     {
         $this->frames = $frames;
 
@@ -46,7 +46,7 @@ class Scorer implements ScorerInterface
      */
     private function getSpareBonus(int $index): int
     {
-        return isset($this->frames[$index]) ? $this->frames[$index]->getThrows()[0] : 0;
+        return $this->frames->getFrame($index)->getThrows()[0] ?? 0;
     }
 
     /**
@@ -55,13 +55,8 @@ class Scorer implements ScorerInterface
      */
     private function getStrikeBonus(int $index): int
     {
-        $bonus = 0;
+        $throws = $this->frames->getFrame($index)->getThrows();
 
-        if (isset($this->frames[$index])) {
-            $throws = $this->frames[$index]->getThrows();
-            $bonus += $throws[0] + ($throws[1] ?? $this->getSpareBonus($index + 1));
-        }
-
-        return $bonus;
+        return ($throws[0] ?? 0) + ($throws[1] ?? $this->getSpareBonus($index + 1));
     }
 }
