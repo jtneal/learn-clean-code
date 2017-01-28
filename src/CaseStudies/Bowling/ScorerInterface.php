@@ -10,9 +10,9 @@ interface ScorerInterface
 {
     /**
      * @param FrameCollection $frames
-     * @return Scorer
+     * @return ScorerInterface
      */
-    public function setFrames(FrameCollection $frames): Scorer;
+    public function setFrames(FrameCollection $frames): ScorerInterface;
 
     /**
      * @return int
