@@ -5,10 +5,10 @@ namespace LearnCleanCode\CaseStudies\PricingCalculator\PricingRules;
 use LearnCleanCode\CaseStudies\PricingCalculator\Product;
 
 /**
- * Class BOGOPriceRule
+ * Class Buy1Get1FreePriceRule
  * @package LearnCleanCode\CaseStudies\PricingCalculator\PricingRules
  */
-class BOGOPriceRule implements PricingRuleInterface
+class Buy1Get1FreePriceRule implements PricingRuleInterface
 {
     /**
      * @param Product $product
@@ -16,7 +16,7 @@ class BOGOPriceRule implements PricingRuleInterface
      */
     public function pricingRuleMatches(Product $product): bool
     {
-        return strtoupper(substr($product->getSKU(), 0, 4)) === 'BOGO';
+        return $product->getPricingRuleFromSKU() === 'BOGO';
     }
 
     /**

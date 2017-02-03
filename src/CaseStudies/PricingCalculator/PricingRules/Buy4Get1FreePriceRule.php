@@ -16,7 +16,7 @@ class Buy4Get1FreePriceRule implements PricingRuleInterface
      */
     public function pricingRuleMatches(Product $product): bool
     {
-        return strtoupper(substr($product->getSKU(), 0, 4)) === 'B4G1';
+        return $product->getPricingRuleFromSKU() === 'B4G1';
     }
 
     /**

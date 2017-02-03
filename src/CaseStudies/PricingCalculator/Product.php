@@ -55,4 +55,14 @@ class Product
 
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function getPricingRuleFromSKU()
+    {
+        $skuParts = explode('_', $this->getSKU());
+
+        return strtoupper($skuParts[0]);
+    }
 }

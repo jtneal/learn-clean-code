@@ -16,7 +16,7 @@ class FlatPriceRule implements PricingRuleInterface
      */
     public function pricingRuleMatches(Product $product): bool
     {
-        return strtoupper(substr($product->getSKU(), 0, 4)) === 'FLAT';
+        return $product->getPricingRuleFromSKU() === 'FLAT';
     }
 
     /**

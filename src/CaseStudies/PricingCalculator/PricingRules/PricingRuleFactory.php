@@ -15,7 +15,7 @@ class PricingRuleFactory implements PricingRuleFactoryInterface
     {
         return [
             new FlatPriceRule(),
-            new BOGOPriceRule(),
+            new Buy1Get1FreePriceRule(),
             new Buy4Get1FreePriceRule(),
         ];
     }
