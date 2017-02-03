@@ -3,6 +3,7 @@
 namespace LearnCleanCode\CaseStudies\PricingCalculator;
 
 use LearnCleanCode\CaseStudies\PricingCalculator\PricingRules\PricingRuleFactoryInterface;
+use LearnCleanCode\CaseStudies\PricingCalculator\PricingRules\PricingRuleInterface;
 
 /**
  * Class PricingCalculator
@@ -11,16 +12,16 @@ use LearnCleanCode\CaseStudies\PricingCalculator\PricingRules\PricingRuleFactory
 class PricingCalculator
 {
     /**
-     * @var PricingRuleFactoryInterface
+     * @var PricingRuleInterface[]
      */
-    private $pricingRuleFactory;
+    private $pricingRuleList;
 
     /**
      * @param PricingRuleFactoryInterface $pricingRuleFactory
      */
     public function __construct(PricingRuleFactoryInterface $pricingRuleFactory)
     {
-        $this->pricingRuleFactory = $pricingRuleFactory;
+        $this->pricingRuleList = $pricingRuleFactory->makePricingRuleList();
     }
 
     /**
@@ -31,7 +32,7 @@ class PricingCalculator
      */
     public function calculatePrice(Product $product, int $quantity): float
     {
-        foreach ($this->pricingRuleFactory->makePricingRuleList() as $pricingRule) {
+        foreach ($this->pricingRuleList as $pricingRule) {
             if ($pricingRule->pricingRuleMatches($product)) {
                 return $pricingRule->calculatePrice($product, $quantity);
             }
