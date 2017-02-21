@@ -1,7 +1,7 @@
 # Case Study: Coffee Shop
 
 This case study came about during my reading of Chapter 3 of
-_Head First DesignPatterns_ titled "Decorating Objects". I had already
+_Head First Design Patterns_ titled "Decorating Objects". I had already
 previously implemented the decorator pattern, but this chapter of the book
 introduced me to the coffee shop idea and I wanted to make it a case study!
 
