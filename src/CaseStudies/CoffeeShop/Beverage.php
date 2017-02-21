@@ -8,6 +8,9 @@ namespace LearnCleanCode\CaseStudies\CoffeeShop;
  */
 abstract class Beverage implements BeverageInterface
 {
+    /**
+     * Beverage sizes
+     */
     const SIZE_SMALL = 'Tall';
     const SIZE_MEDIUM = 'Grande';
     const SIZE_LARGE = 'Venti';
